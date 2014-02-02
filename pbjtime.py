@@ -9,17 +9,11 @@ else:
     print "No PB&J for you :("
 
 #Second Goal
-if pb == 0 or jelly == 0 or slices == 0:  #  if pb or jelly or slices == 0:
-    print "No PB&J for you :("
-elif jelly <= pb and jelly <= slices/2:
-    print "You can make {0} sandwiches!".format(jelly)
-elif pb <= jelly and pb <= slices/2:
-    print "You can make {0} sandwiches!".format(pb)
-elif slices/2 <= pb and slices/2 <= jelly:
-    print "You can make {0} sandwiches!".format(slices/2)
+if pb >= 1 and jelly >= 1 and slices >=2:
+    print "You can make {0} sandwiches!".format(min(pj,jelly,slices/2))
 else:
     print "No PB&J for you :("
-    
+
 #Third Goal
 #If you have an odd number of bread slices, you can only make an open faced sandwich if you have enough pb & j for the extra slice of bread jelly = (slices/2)+1
 if pb == 0 or jelly == 0 or slices == 0:
