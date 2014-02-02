@@ -1,0 +1,43 @@
+pb = 7
+jelly = 10
+slices = 8
+sand_number = 1
+
+
+#First Goal
+while pb >= 1 and jelly >= 1 and slices >= 2:
+    print "Making Sandwich #{0}".format(sand_number)
+    pb = pb - 1
+    jelly = jelly - 1
+    slices = slices - 2
+    sand_number = sand_number +1
+    
+if pb == 0:
+    print "Only had enough for peanut butter for {0} sandwiches.".format(sand_number-1)
+elif jelly == 0:
+    print "Only had enough jelly for {0} sandwiches.".format(sand_number-1)
+elif slices == 0:
+    print "Only had enough bread for {0} sandwiches.".format(sand_number-1)
+else:
+    print"You're not done!"
+    
+"""
+
+#Second Goal
+while pb >=1 and jelly >=1 and slices >=2:
+    print "Making Sandwich #{0}".format(sand_number)
+    slices = slices - 2
+    pb = pb - 1
+    jelly = jelly - 1
+    sand_number = sand_number +1
+    print "I have enough bread for {0} more sandwiches, enough peanut butter for {1} more, and enough jelly for {2} more.".format(slices/2,pb,jelly)
+
+if pb == 0:
+    print "Only had enough for peanut butter for {0} sandwiches.".format(sand_number-1)
+elif jelly == 0:
+    print "Only enough jelly for {0}.".format(sand_number-1)
+elif slices == 0:
+    print "Only enough bread for {0}.".format(sand_number-1)
+else:
+    print"You're not done!"
+    """
