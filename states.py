@@ -3,9 +3,5 @@ state_abbreviations = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL
 
 print "<select>"
 for state, abbrev in zip(us_states, state_abbreviations):
-    print '<option value="' #Is there a way to put all of these print commands on one line?
-    print abbrev #Or do variables have to be printed separately?
-    print '">'
-    print state
-    print '</option>'
+    print """<option value="{0}">{1}</option>""".format(abbrev,state)
 print "</select>"
