@@ -1,6 +1,6 @@
-pb = 7
-jelly = 10
-slices = 8
+pb = 8
+jelly = 7
+slices = 13
 sand_number = 1
 
 
@@ -11,17 +11,21 @@ while pb >= 1 and jelly >= 1 and slices >= 2:
     jelly = jelly - 1
     slices = slices - 2
     sand_number = sand_number +1
-    
-if pb == 0:
-    print "Only had enough for peanut butter for {0} sandwiches.".format(sand_number-1)
+
+if pb == 0: #Define first ingredient to run out.
+    ingredient = "peanut butter"
 elif jelly == 0:
-    print "Only had enough jelly for {0} sandwiches.".format(sand_number-1)
-elif slices == 0:
-    print "Only had enough bread for {0} sandwiches.".format(sand_number-1)
+    ingredient = "jelly"
 else:
-    print"You're not done!"
-    
-"""
+    ingredient = "bread"
+
+if sand_number > 2: #Just making the sentence sound more human.
+    plural = "es"
+else:
+    plural = ""
+
+print "Only had enough {0} for {1} sandwich{2}.".format(ingredient,sand_number-1,plural)
+
 
 #Second Goal
 while pb >=1 and jelly >=1 and slices >=2:
@@ -29,15 +33,19 @@ while pb >=1 and jelly >=1 and slices >=2:
     slices = slices - 2
     pb = pb - 1
     jelly = jelly - 1
-    sand_number = sand_number +1
-    print "I have enough bread for {0} more sandwiches, enough peanut butter for {1} more, and enough jelly for {2} more.".format(slices/2,pb,jelly)
-
-if pb == 0:
-    print "Only had enough for peanut butter for {0} sandwiches.".format(sand_number-1)
-elif jelly == 0:
-    print "Only enough jelly for {0}.".format(sand_number-1)
-elif slices == 0:
-    print "Only enough bread for {0}.".format(sand_number-1)
-else:
-    print"You're not done!"
-    """
+    sand_number = sand_number +1      
+    if pb > 0 and jelly > 0 and slices/2 > 0:
+        if pb > 1 and jelly > 1 and slices/2 > 1:
+            plural = "es"
+        else:
+            plural = ""
+        print "I have enough bread for {0} more sandwich{3}, enough peanut butter for {1} more, and enough jelly for {2} more.".format(slices/2,pb,jelly,plural)
+    else:
+        if jelly == 0:
+            print "All done. I ran out of jelly."
+        elif slices/2 == 0:
+            print "All done, I ran out of bread."
+        elif pb == 0:
+            print "All done. I ran out of peanut butter."
+        else:
+            print"You're not done!"
