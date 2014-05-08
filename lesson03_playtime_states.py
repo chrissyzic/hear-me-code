@@ -8,17 +8,25 @@
 
 # Challenge 1: Open states.txt and use the information to generate an HTML drop-down menu as in: https://github.com/shannonturner/python-lessons/blob/master/playtime/lesson02_states.py
 
-with open ("states.csv","r") as states_file:
-    states = states_file.read().split("\n")
-
+with open ("states.csv","r") as states_file: #opens .csv file as read only
+    something = states_file.read().split("\n") #creates a list ("something") where each item is a row in the .csv file, saved as a string - e.g. "AL,Alabama"
+    
 print "<select>"
-for index, state in enumerate(states):
-    states[index] = state.split(",")
-    print """<option value="{0}">{1}</option>""".format(states[index][0],states[index][1])
+for index, state in enumerate(something): #generate the index along with each item of the list that is being looped over:
+    something[index] = state.split(",") #splits each item/string (state) in the list at a comma
+    print """<option value="{0}">{1}</option>""".format(something[index][0],something[index][1]) #could also define a variable above this line: abbrevs = something[index][0]
 print "</select>"
+
+#the way to call these values outside of the for loop is like this
+print something[3][1] #will return "Arkansas"
+print something[13][0] #will return "IL'
+print something[1] #will return ['AK', 'Alaska']
+
 
 # Challenge 2: Save the HTML as states.html instead of printing it to screen.  
 # Your states.html should look identical (or at least similar) to the one you created in the Lesson 2 playtime, except you're getting the states from a file instead of a list.
+
+
 
 # Challenge 3: Using state_info.csv, create an HTML page that has a table for *each* state with all of the state details.
 
