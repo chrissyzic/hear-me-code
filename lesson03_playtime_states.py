@@ -55,4 +55,31 @@ with open ("lesson03_playtime_states.html","w") as states_html: #open and create
 # </tr>
 # </table>
 
+# Challenge 3: Using state_info.csv, create an HTML page that has a table for *each* state with all of the state details.
+
+# <table border="1">
+# <tr>
+# <td colspan="2"> California </td>
+# </tr>
+# <tr>
+# <td> Rank: 1 </td>
+# <td> Percent: 11.91% </td>
+# </tr>
+# <tr>
+# <td> US House Members: 53 </td>
+# <td> Population: 38,332,521 </td>
+# </tr>
+# </table>
+
+with open ("states_info.csv", "r") as states_info_file: #this just prints in, next time use this python file to create a new HTML file!
+    states_demographics = states_info_file.read().split("\n")
+
+for index, state in enumerate(states_demographics):
+    states_demographics[index] = state.split(",")
+    print """<table border="1">\n<tr>\n<td colspan="2"> {0} </td>\n</tr>""".format(states_demographics[index][1])
+    print """<tr>\n<td> Rank: {0} </td>\n<td> Percent: {1} </td>\n</tr>""".format(states_demographics[index][0], states_demographics[index][4])
+    print """<tr>\n<td> US House Members: {0} </td>\n<td>Population: {1} </td>\n</tr>\</table>""".format(states_demographics[index][3], states_demographics[index][2])
+
+
+
 # Challenge 4 (Not a Python challenge, but an HTML/Javascript challenge): When you make a choice from the drop-down menu, jump to that state's table.
