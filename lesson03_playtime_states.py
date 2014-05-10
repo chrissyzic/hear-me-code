@@ -26,6 +26,15 @@ print something[1] #will return ['AK', 'Alaska']
 # Challenge 2: Save the HTML as states.html instead of printing it to screen.  
 # Your states.html should look identical (or at least similar) to the one you created in the Lesson 2 playtime, except you're getting the states from a file instead of a list.
 
+with open ("states.csv", "r") as states_file:
+    states = states_file.read().split("\n")
+    
+with open ("lesson03_playtime_states.html","w") as states_html: #open and create HTML file, tell python you want to write to it as a...list?
+    states_html.write("<select>\n") #basically, instead of printing, add that string to the HTML file just created
+    for index, state in enumerate(states): #same dealio as challenge 1
+        states[index] = state.split(",")
+        states_html.write("""<option value="{0}">"{1}"</option>\n""".format(states[index][0],states[index][1]))
+    states_html.write("</select>")
 
 
 # Challenge 3: Using state_info.csv, create an HTML page that has a table for *each* state with all of the state details.
