@@ -81,3 +81,19 @@ with open ("contacts.html", "w") as contacts_html:
         contacts_html.write("</table>")
 
 # Goal 4: Instead of reading in the contacts from the dictionary above, read them in from contacts.csv, which you can find in lesson_07_(files).
+
+with open ('contacts.csv', 'r') as contacts_csv:
+    contacts = contacts_csv.read().split("\n")
+
+for index, information in enumerate(contacts):
+    contacts[index] = information.split(",")
+    print """<table border="1">"""
+    print "<tr>"
+    print """<td colspan="2"> {0} </td>""".format(contacts[index][0])
+    print "</tr>"
+    print "<tr>"
+    print "<td> Phone: {0} </td>".format(contacts[index][1])
+    print "<td> Twitter: {0} </td>".format(contacts[index][3])
+    print "<td> Github: {0} </td>".format(contacts[index][2])
+    print "</tr>"
+    print "</table>"
