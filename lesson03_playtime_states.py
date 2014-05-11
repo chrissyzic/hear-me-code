@@ -71,15 +71,18 @@ with open ("lesson03_playtime_states.html","w") as states_html: #open and create
 # </tr>
 # </table>
 
-with open ("states_info.csv", "r") as states_info_file: #this just prints in, next time use this python file to create a new HTML file!
+with open ("states_info.csv", "r") as states_info_file:
     states_demographics = states_info_file.read().split("\n")
+    states_demographics.pop(0) #remove the header row from the states_demographics list
+    print states_demographics
 
-for index, state in enumerate(states_demographics):
-    states_demographics[index] = state.split(",")
-    print """<table border="1">\n<tr>\n<td colspan="2"> {0} </td>\n</tr>""".format(states_demographics[index][1])
-    print """<tr>\n<td> Rank: {0} </td>\n<td> Percent: {1} </td>\n</tr>""".format(states_demographics[index][0], states_demographics[index][4])
-    print """<tr>\n<td> US House Members: {0} </td>\n<td>Population: {1} </td>\n</tr>\</table>""".format(states_demographics[index][3], states_demographics[index][2])
+with open ("states_info.html", "w") as states_info_html:
+    for index, state in enumerate(states_demographics):
+        states_demographics[index] = state.split(",")
+        states_info_html.write("""<table border="1">\n<tr>\n<td colspan="2"> {0} </td>\n</tr>""".format(states_demographics[index][1]))
+        states_info_html.write("""<tr>\n<td> Rank: {0} </td>\n<td> Percent: {1} </td>\n</tr>""".format(states_demographics[index][0], states_demographics[index][4]))
+        states_info_html.write("""<tr>\n<td> US House Members: {0} </td>\n<td>Population: {1} </td>\n</tr>\n</table>""".format(states_demographics[index][3], states_demographics[index][2]))
 
-
+#how can I remove the quotation marks from around the state name and percentage?
 
 # Challenge 4 (Not a Python challenge, but an HTML/Javascript challenge): When you make a choice from the drop-down menu, jump to that state's table.
