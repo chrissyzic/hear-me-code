@@ -24,7 +24,20 @@ contacts = {
 #   Twitter: @beyonce
 #   Github: @bey
 
+#Two methods that get the same result!
 
+#First method is the .items() method
+
+for contact, info in contacts.items(): #creates another dictionary ("info") of the nested dictionaries, and you can all those items by key, e.g. info['phone']
+    print "{0}'s contact information is:\nPhone: {1}\nTwitter: {2}\nGithub: {3}".format(contact,info['phone'],info['twitter'],info['github']) 
+
+#The other method is the .keys() method, doesn't create the info variable, so you have to type more to call the list from the keys:
+for contact in contacts.keys():
+    print "{0}'s contact information is:".format(contact) #print the key
+    print "Phone: {0}".format(contacts[contact]['phone']) #call the info tie to the 'phone' key in the dictionary nested within the 'contacts' dictionary
+    print "Twitter: {0}".format(contacts[contact]['twitter'])
+    print "Github: {0}".format(contacts[contact]['github']) 
+    
 # Goal 2:  Display that information as an HTML table.
 
 # Sample output:
@@ -40,8 +53,31 @@ contacts = {
 # </tr>
 # </table>
 
-# ...
+for contact, info in contacts.items():
+    print """<table border="1">"""
+    print "<tr>"
+    print """<td colspan="2"> {0} </td>""".format(contact)
+    print "</tr>"
+    print "<tr>"
+    print "<td> Phone: {0} </td>".format(info['phone'])
+    print "<td> Twitter: {0} </td>".format(info['twitter'])
+    print "<td> Github: {0} </td>".format(info['github'])
+    print "</tr>"
+    print "</table>"
 
 # Goal 3: Write all of the HTML out to a file called contacts.html and open it in your browser.
+
+with open ("contacts.html", "w") as contacts_html:
+    for contact, info in contacts.items():
+        contacts_html.write("""<table border="1">""")
+        contacts_html.write("<tr>")
+        contacts_html.write("""<td colspan="2"> {0} </td>""".format(contact))
+        contacts_html.write("</tr>")
+        contacts_html.write("<tr>")
+        contacts_html.write("<td> Phone: {0} </td>".format(info['phone']))
+        contacts_html.write("<td> Twitter: {0} </td>".format(info['twitter']))
+        contacts_html.write("<td> Github: {0} </td>".format(info['github']))
+        contacts_html.write("</tr>")
+        contacts_html.write("</table>")
 
 # Goal 4: Instead of reading in the contacts from the dictionary above, read them in from contacts.csv, which you can find in lesson_07_(files).
