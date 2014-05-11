@@ -13,6 +13,7 @@
 
 with open ("all_employees.csv","r") as all_employees_file:
 	employees = all_employees_file.read().split("\n")
+	headers = employees.pop(0)
 
 for index, employee in enumerate(employees):
     employees[index] = employee.split(",")
@@ -21,7 +22,6 @@ for index, employee in enumerate(employees):
     phone = str(employees[index][2])
     department = str(employees[index][3])
     position = str(employees[index][4])
-    #print names, phone, email, department, position
 
 with open ("survey.csv","r") as survey_file:
     responders = survey_file.read().split("\n")
