@@ -25,17 +25,17 @@ for index, employee in enumerate(employees):
 
 with open ("survey.csv","r") as survey_file:
     responders = survey_file.read().split("\n")
-
+  
 for index, responder in enumerate(responders):
     responders[index]= responder.split(",")
     email_survey = str(responders[index][0])
     twitter = str(responders[index][1])
     github = str(responders[index][2])
+    print email_survey
 
-if email == email_survey:
-    print twitter
+if email = email_survey:
+    print "{0} took the survey! Here is their info: Twitter:{1}, Github:{2}, Phone:{3}".format()
     
-# for index, responder in enumerate(responders):
 # Sample output:
 #       Shannon Turner took the survey! Here is her contact information: Twitter: @svt827 Github: @shannonturner Phone: 202-555-1234
 
