@@ -86,3 +86,30 @@ with open ("states_info.html", "w") as states_info_html:
 #how can I remove the quotation marks from around the state name and percentage?
 
 # Challenge 4 (Not a Python challenge, but an HTML/Javascript challenge): When you make a choice from the drop-down menu, jump to that state's table.
+
+<select id="select1" size="1" style="background-color:#FFFFD7">
+<option>Choose a Position</option>
+<option value="1">Job!</option>
+<option value="2">Job!</option>
+<option value="3">Job!</option>
+<option value="4">Job!</option>
+<option value="5">Job!</option>
+<option value="6">Job!</option>
+<option value="7">Job!</option>
+<option value="8">Job!</option>
+<option value="9">Job!</option>
+</select>    
+And I have a jquery script that I tried to hack together.
+
+    <script type="text/javascript">
+    jQuery(document).ready(function() {
+        jQuery("#select1").change(function(){
+            var jump = jQuery("#select1").val();
+            var new_position = jQuery('#job'+jump).offset();
+            window.scrollTo(new_position.left,new_position.top);
+            return false;
+        });​
+    }
+    </script>
+    
+# http://stackoverflow.com/questions/11147258/using-jquery-to-link-dropdown-to-anchor-text    
