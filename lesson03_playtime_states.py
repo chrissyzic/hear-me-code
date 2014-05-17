@@ -87,6 +87,7 @@ with open ("states_info.html", "w") as states_info_html:
 
 # Challenge 4 (Not a Python challenge, but an HTML/Javascript challenge): When you make a choice from the drop-down menu, jump to that state's table.
 
+#I am still working on this one, but here are random snippets of code that look like they might address this challenge.
 <select id="select1" size="1" style="background-color:#FFFFD7">
 <option>Choose a Position</option>
 <option value="1">Job!</option>
@@ -111,5 +112,30 @@ And I have a jquery script that I tried to hack together.
         });​
     }
     </script>
-    
+
 # http://stackoverflow.com/questions/11147258/using-jquery-to-link-dropdown-to-anchor-text    
+
+#And here is smore code from another site:
+<script>
+function favBrowser()
+{
+var mylist=document.getElementById("myList");
+document.getElementById("favorite").value=mylist.options[mylist.selectedIndex].text;
+}
+</script>
+</head>
+
+<body>
+<form>
+Select your favorite browser:
+<select id="myList" onchange="favBrowser()">
+for index, state in enumerate(states):
+    print """<option>Google Chrome</option>""".format()
+  <option>Firefox</option>  
+  <option>Internet Explorer</option>
+  <option>Safari</option>
+  <option>Opera</option>
+</select>
+<p>Your favorite browser is: <input type="text" id="favorite" size="20"></p>
+</form>
+</body>
