@@ -28,6 +28,7 @@ print dedupe('film_screening_attendees.txt','happy_hour_attendees.txt')
 
 # Goal 2: Who came to *both* your Film Screening and your Happy hour?
 
+
 def print_dupes(file1, file2):
 
     with open(file1, "r") as first_file:
@@ -36,12 +37,13 @@ def print_dupes(file1, file2):
     with open(file2, "r") as second_file:
         second_file = second_file.read().split("\n")
 
-    combined_file = first_file + second_file
-    seen = set()
-    seen_add = seen.add 
-    seen_twice = set([x for x in combined_file if combined_file.count(x) > 1]) # adds all elements it doesn't know yet to seen and all other to seen_twice
-    return list(seen_twice) #returns it as a list
+    dupe_list = []
+
+    for person in first_file:
+        if person in second_file:
+            dupe_list.append(person)        
+
+    return dupe_list
 
 print print_dupes('film_screening_attendees.txt','happy_hour_attendees.txt')
-
 
