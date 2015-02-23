@@ -1,0 +1,5 @@
+endpoint = location(s) where data are stored
+parameters = "?" in URL tells you parameters are coming next, "&" lets you add additional search parameters
+key
+
+http://openstates.org/api/v1/legislators?api_key=XXXXXX&state=wisconsin
