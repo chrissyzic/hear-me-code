@@ -16,4 +16,12 @@ Some libraries/modules come with Python, but they don't get loaded right away - 
 SOME modules have to be installed, e.g. django, numby (for complicated math), requests (for hitting APIs)
 --> easiest wat to install modules (that need installing) is by using PIP, i.e. pip install modulename
 
+Let's look at an example!
+https://api.github.com/repos/sunlightlabs/openstates/issues?state=closed
+JSON - notation and formatting that makes it look pretty (XML is another format), basically it's a method that interprets the data in an API and spits it back out in a readable formatt
+this is basically a nested list of Python dictionaries
+
+API in Python
+You CAN open APIs in a browser (like in the Sunlight example above)
+But, if you want to play with the data, it's best to use Python
 
