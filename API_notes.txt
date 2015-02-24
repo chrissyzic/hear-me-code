@@ -1,5 +1,19 @@
+VOCAB
 endpoint = location(s) where data are stored
 parameters = "?" in URL tells you parameters are coming next, "&" lets you add additional search parameters
-key
+key = password that lets you use the API, some people are really stingy about giving out keys
 
 http://openstates.org/api/v1/legislators?api_key=XXXXXX&state=wisconsin
+
+API in Python
+1. use request to act like a browser
+2. store info you get back
+3. process, combine, and/or display it
+4. profit!
+
+Detour: Libraries/Modules
+Some libraries/modules come with Python, but they don't get loaded right away - you have to import them, e.g. csv, datetime, os
+SOME modules have to be installed, e.g. django, numby (for complicated math), requests (for hitting APIs)
+--> easiest wat to install modules (that need installing) is by using PIP, i.e. pip install modulename
+
+
