@@ -18,10 +18,11 @@ SOME modules have to be installed, e.g. django, numby (for complicated math), re
 
 Let's look at an example!
 https://api.github.com/repos/sunlightlabs/openstates/issues?state=closed
-JSON - notation and formatting that makes it look pretty (XML is another format), basically it's a method that interprets the data in an API and spits it back out in a readable formatt
+JSON - notation and formatting that makes it look pretty (XML is another format), basically it's a method that interprets the data in an API and spits it back out in a readable format (aka a Python dictionary)
 this is basically a nested list of Python dictionaries
 
 API in Python
 You CAN open APIs in a browser (like in the Sunlight example above)
 But, if you want to play with the data, it's best to use Python
-
+Most API data comes in pages b/c otherwise the data would go on forever.
+Think about: what happens when you run out of data?
